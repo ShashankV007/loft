@@ -8,7 +8,7 @@ image:
   repository: shashankv1999/hello-python
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: f9b70f2
+  tag: 9c47669
 
 imagePullSecrets: []
 nameOverride: ""
