@@ -36,7 +36,7 @@ jobs:
           url: ${{ secrets.LOFT_URL }}
           access-key: ${{ secrets.LOFT_ACCESS_KEY }}
       - name: setup context
-        run: loft use vclusters Shashank
+        run: loft use vcluster shashank --cluster loft-cluster --space loft
       - name: deployment
         run: kubectl set image deployment/python python=shashankv1999/hello-python:${{ steps.commit.outputs.short }}
 
