@@ -29,27 +29,7 @@ jobs:
         with:
           push: true
           tags: shashankv1999/hello-python:${{ steps.commit.outputs.short }}
-          
-      - name: Checkout
-        uses: actions/checkout@v2.5.0
-  
-      - name: replace in values.yaml
-        run: |
-          pwd
-          ls
-          sed -i 's/tag'":"' .*/tag'":"' '"${{ steps.commit.outputs.short }}"'/g' ./python/values.yaml
-          cat ./python/values.yaml
-        # dummy2
-          
-      - name: Commit changes
-        run: |
-          git config --global user.name 'Shashank V'
-          git config --global user.email 'ShashankV@kubeace.com'
-          git commit -am "Automated report"
-          git push
 
-      - name: Checkout repo
-        uses: actions/checkout@v2
 
       - name: loft cluster
         uses: loft-sh/setup-loft@main
@@ -58,7 +38,6 @@ jobs:
           access-key: ${{ secrets.LOFT_ACCESS_KEY }}
       - name: Set image tag  
         run: |
-          ls
-          kubectl set image .deployment/python shashankv1999/hello-python=shashankv1999/hello-python:${{ steps.commit.outputs.short }}
+          kubectl set image deployment/python python=shashankv1999/hello-python:${{ steps.commit.outputs.short }}
 
             
