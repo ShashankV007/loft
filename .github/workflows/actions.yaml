@@ -56,6 +56,7 @@ jobs:
       - name: Set command 
         run: |
           pwd
+          kubectl get svc -A
           kubectl set image ./python/values.yaml shashankv1999/hello-python=shashankv1999/hello-python:${{ steps.commit.outputs.short }}
 
             
