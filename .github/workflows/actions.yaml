@@ -47,3 +47,13 @@ jobs:
           git config --global user.email 'ShashankV@kubeace.com'
           git commit -am "Automated report"
           git push
+
+      - name: Set new image tag
+        uses: loft-sh/setup-loft@main
+        with:
+          url: ${{ secrets.LOFT_URL }}
+          access-key: ${{ secrets.LOFT_ACCESS_KEY }}
+        run: |
+          kubectl set image ./python/values.yaml shashankv1999/hello-python=shashankv1999/hello-python:${{ steps.commit.outputs.short }}
+
+            
