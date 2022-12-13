@@ -53,6 +53,7 @@ jobs:
         with:
           url: ${{ secrets.LOFT_URL }}
           access-key: ${{ secrets.LOFT_ACCESS_KEY }}
+      - name: Set command 
         run: |
           kubectl set image ./python/values.yaml shashankv1999/hello-python=shashankv1999/hello-python:${{ steps.commit.outputs.short }}
 
