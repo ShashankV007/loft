@@ -39,7 +39,7 @@ jobs:
           ls
           sed -i 's/tag'":"' .*/tag'":"' '"${{ steps.commit.outputs.short }}"'/g' ./python/values.yaml
           cat ./python/values.yaml
-        # dummy1
+        # dummy2
           
       - name: Commit changes
         run: |
