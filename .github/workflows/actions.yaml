@@ -38,7 +38,7 @@ jobs:
           pwd
           ls
           sed -i 's/tag'":"' .*/tag'":"' '"${{ steps.commit.outputs.short }}"'/g' ./python-hello/values.yaml
-          cat ./python-hello/values.yaml
+          cat ./python/values.yaml
           
       - name: Commit changes
         run: |
